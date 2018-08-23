@@ -36,7 +36,7 @@ class App extends React.Component {
       temperature: data.main.temp,
       city: data.name,
       country: data.sys.country,
-      humidity: data.main.humidty,
+      humidity: data.main.humidity,
       description: data.weather[0].description,
       error: ""
     });
@@ -47,7 +47,14 @@ class App extends React.Component {
       <div>
         <Titles />
         <Form getWeather={this.getWeather}/>
-        <Weather />
+        <Weather
+          temperature={this.state.temperature}
+          city={this.state.city}
+          country={this.state.country}
+          humidity={this.state.humidity}
+          description={this.state.description}
+          error={this.state.error}
+        />
       </div>
     );
   }
