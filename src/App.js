@@ -9,6 +9,15 @@ const API_KEY = "dcdedbc65b36fc24ea047e41eca5785c";
 
 //initialize component
 class App extends React.Component {
+  state = {
+    temperature: undefined,
+    city: undefined,
+    country: undefined,
+    humidity: undefined,
+    description: undefined,
+    error: undefined
+  }
+
   getWeather = async (e) => {
     //prevent default behavior
     e.preventDefault();
@@ -22,6 +31,15 @@ class App extends React.Component {
     //convert api_call to JSON
     const data = await api_call.json();
     console.log(data);
+
+    this.setState({
+      temperature: data.main.temp,
+      city: data.name,
+      country: data.sys.country,
+      humidity: data.main.humidty,
+      description: data.weather[0].description,
+      error: ""
+    });
   }
 
   render() {
