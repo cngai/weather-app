@@ -30,16 +30,31 @@ class App extends React.Component {
 
     //convert api_call to JSON
     const data = await api_call.json();
-    console.log(data);
 
-    this.setState({
-      temperature: data.main.temp,
-      city: data.name,
-      country: data.sys.country,
-      humidity: data.main.humidity,
-      description: data.weather[0].description,
-      error: ""
-    });
+    //conditional check to see if city and country are entered
+    if (city && country) {
+      console.log(data);
+
+      //update state when button pressed
+      this.setState({
+        temperature: data.main.temp,
+        city: data.name,
+        country: data.sys.country,
+        humidity: data.main.humidity,
+        description: data.weather[0].description,
+        error: ""
+      });
+    }
+    else {
+      this.setState({
+        temperature: undefined,
+        city: undefined,
+        country: undefined,
+        humidity: undefined,
+        description: undefined,
+        error: "Please enter the value."
+      });
+    }
   }
 
   render() {
