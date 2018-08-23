@@ -13,11 +13,11 @@ class App extends React.Component {
     //prevent default behavior
     e.preventDefault();
 
-    const city = e.target.elements.name.city.value;   //input of city
-    const country = e.target.elements.name.country.value; //input of country
+    const city = e.target.elements.city.value;   //input of city
+    const country = e.target.elements.country.value; //input of country
 
     //make api call
-    const api_call = await fetch(`https://samples.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}`);
+    const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}`);
 
     //convert api_call to JSON
     const data = await api_call.json();
