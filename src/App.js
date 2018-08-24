@@ -33,7 +33,7 @@ class App extends React.Component {
 
     //conditional check to see if city and country are entered
     if (city && country) {
-      console.log(data);
+      // console.log(data);
 
       //update state when button pressed
       this.setState({
